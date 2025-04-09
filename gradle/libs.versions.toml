@@ -1,0 +1,9 @@
+[versions]
+
+kotlin = "2.1.20"
+
+[libraries]
+
+[libraries.kotlin-gradle-plugin-dependency]
+module = "org.jetbrains.kotlin:kotlin-gradle-plugin"
+version.ref = "kotlin"
