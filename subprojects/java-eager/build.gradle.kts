@@ -4,5 +4,5 @@ plugins {
 }
 
 dependencies {
-    implementation(eagerDependencyHelper(project(":subprojects:util")))
+    implementation(eagerDependency(project(":subprojects:util")))
 }

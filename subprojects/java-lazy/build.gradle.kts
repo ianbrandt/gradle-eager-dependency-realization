@@ -4,5 +4,5 @@ plugins {
 }
 
 dependencies {
-    implementation(lazyDependencyHelper(project(":subprojects:util")))
+    implementation(lazyDependency(project(":subprojects:util")))
 }

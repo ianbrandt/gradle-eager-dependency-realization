@@ -10,7 +10,7 @@ import org.gradle.api.provider.Provider
  * helper functions.
  */
 fun interface EagerDependencyCreationExtension {
-    operator fun invoke(notation: Any): Dependency
+    operator fun invoke(dependency: Dependency): Dependency
 }
 
 /**
@@ -19,5 +19,5 @@ fun interface EagerDependencyCreationExtension {
  * helper functions.
  */
 fun interface LazyDependencyCreationExtension {
-    operator fun invoke(notation: Any): Provider<Dependency>
+    operator fun invoke(dependency: Dependency): Provider<Dependency>
 }
