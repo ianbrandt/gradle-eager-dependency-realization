@@ -1,9 +1,7 @@
 package com.ianbrandt.buildlogic.plugins
 
 import com.ianbrandt.buildlogic.artifacts.dsl.EagerDependencyCreationExtension
-import com.ianbrandt.buildlogic.artifacts.dsl.LazyDependencyCreationExtension
 import com.ianbrandt.buildlogic.artifacts.dsl.StackLoggingEagerDependencyCreationExtension
-import com.ianbrandt.buildlogic.artifacts.dsl.StackLoggingLazyDependencyCreationExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
@@ -17,15 +15,6 @@ class DependencyHelperPlugin : Plugin<Project> {
             "eagerDependency",
             StackLoggingEagerDependencyCreationExtension(
                 projectPath = project.path,
-            )
-        )
-
-        project.dependencies.extensions.add(
-            LazyDependencyCreationExtension::class.java,
-            "lazyDependency",
-            StackLoggingLazyDependencyCreationExtension(
-                projectPath = project.path,
-                providers = project.providers,
             )
         )
     }

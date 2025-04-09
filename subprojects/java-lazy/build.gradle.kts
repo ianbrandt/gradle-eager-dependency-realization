@@ -1,8 +1,18 @@
 plugins {
     id("java-library")
-    id("com.ianbrandt.buildlogic.plugins.dependency-helper-plugin")
 }
 
 dependencies {
-    implementation(lazyDependency(project(":subprojects:util")))
+    implementation(provider {
+        val notation = ":subprojects:util"
+        // Debug logging.
+        try {
+            throw RuntimeException("Dependency creation stacktrace")
+        } catch (e: RuntimeException) {
+            logger.warn(
+                "Creating dependency $notation for ${project.path}...", e
+            )
+        }
+        project(notation)
+    })
 }
