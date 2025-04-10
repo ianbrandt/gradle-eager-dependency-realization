@@ -5,12 +5,9 @@ plugins {
 dependencies {
     implementation(project(":subprojects:util")) {
         // Debug logging.
-        try {
-            throw RuntimeException("Dependency config stacktrace")
-        } catch (e: RuntimeException) {
-            logger.lifecycle(
-                "Configuring dependency $this for ${project.path}...", e
-            )
-        }
+        logger.lifecycle(
+            "Configuring dependency $this for ${project.path}...",
+            RuntimeException("Dependency config stacktrace")
+        )
     }
 }

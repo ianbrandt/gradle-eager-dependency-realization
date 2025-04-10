@@ -18,14 +18,10 @@ class StackLoggingEagerDependencyCreationExtension(
     override fun invoke(dependency: Dependency): Dependency {
 
         // Debug logging.
-        try {
-            throw RuntimeException("Dependency creation stacktrace")
-        } catch (e: RuntimeException) {
-            logger.warn(
-                "Creating dependency $dependency for $projectPath...",
-                e
-            )
-        }
+        logger.warn(
+            "Creating dependency $dependency for $projectPath...",
+            RuntimeException("Dependency creation stacktrace")
+        )
 
         return dependency
     }
